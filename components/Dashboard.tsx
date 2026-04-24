@@ -51,20 +51,6 @@ export default function Dashboard() {
       ? <span style={{ opacity: .2, marginLeft: 3, fontSize: 9 }}>⇅</span>
       : <span style={{ marginLeft: 3, fontSize: 9, color: '#3b82f6' }}>{sortD === 'asc' ? '▲' : '▼'}</span>
 
-  const exportCSV = () => {
-    const h = ['City','State','Population','Pop Trend','Market Type','Risk Flags','Notes','Unemployment','Property Tax','Insurance Index','Poverty Rate']
-    const r = filtered.map(m => [
-      m.city, m.state, m.population, m.popTrend, m.marketType,
-      m.riskFlags.join('|'), `"${m.notes}"`,
-      m.unemployment, m.propertyTaxRate, m.insuranceIndex, m.povertyRate,
-    ])
-    const csv = [h.join(','), ...r.map(x => x.join(','))].join('\n')
-    const a = document.createElement('a')
-    a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }))
-    a.download = 's8_market_analysis_2026.csv'
-    a.click()
-  }
-
   const TH: React.CSSProperties = {
     padding: '11px 13px', textAlign: 'left', fontSize: 10.5, fontWeight: 700,
     color: '#64748b', textTransform: 'uppercase', letterSpacing: .8,
@@ -89,8 +75,8 @@ export default function Dashboard() {
         .chip:hover { opacity: .85; }
         .cbtn { background: #0b1320; border: 1px solid #172030; color: #94a3b8; border-radius: 8px; padding: 7px 14px; cursor: pointer; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; display: inline-flex; align-items: center; gap: 6px; transition: border-color .15s, color .15s; }
         .cbtn:hover { border-color: #3b82f6; color: #e2e8f0; }
-        @media (max-width: 768px) { .dt { display: none !important; } .mc { display: flex !important; } .sb { grid-template-columns: 1fr !important; } }
-        @media (min-width: 769px) { .mc { display: none !important; } }
+        @media (max-width: 768px) { .dt { display: none !important; } .mc { display: flex !important; } .sb { grid-template-columns: 1fr !important; } .adv-btn { display: none !important; } .tip-dt { display: none !important; } .tip-mc-bd { display: block; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.55); } .tip-mc { display: block; position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); width: min(290px,85vw); max-height: 70vh; overflow-y: auto; } }
+        @media (min-width: 769px) { .mc { display: none !important; } .tip-mc { display: none !important; } .tip-mc-bd { display: none !important; } }
       `}</style>
 
       {/* ── HEADER ── */}
@@ -191,11 +177,10 @@ export default function Dashboard() {
           )}
 
           <div style={{ marginLeft: 'auto', display: 'flex', gap: 8 }}>
-            <button className="cbtn" onClick={() => setAdv(a => !a)}
+            <button className="cbtn adv-btn" onClick={() => setAdv(a => !a)}
               style={{ borderColor: adv ? '#3b82f6' : '#172030', color: adv ? '#3b82f6' : '#94a3b8', background: adv ? 'rgba(59,130,246,0.1)' : '#0b1320' }}>
               {adv ? '▾' : '▸'} Advanced
             </button>
-            <button className="cbtn" onClick={exportCSV}>↓ CSV</button>
           </div>
         </div>
 

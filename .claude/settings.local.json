@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/jacobgonzalez/.volta/**)",
+      "Read(//Users/jacobgonzalez/.fnm/**)",
+      "Read(//Users/jacobgonzalez/**)",
+      "Read(//opt/**)",
+      "Read(//usr/**)",
+      "Bash(mdfind \"kind:app node\")",
+      "Bash(mdfind \"node\" -onlyin /usr/local)",
+      "Bash(command -v node)",
+      "Bash(command -v npm)",
+      "Bash(brew install *)",
+      "Bash(/opt/homebrew/bin/npm install *)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(git init *)",
+      "Bash(git remote *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(gh auth *)",
+      "Bash(ssh -T git@github.com)",
+      "Bash(git pull *)",
+      "Bash(git stash *)",
+      "Bash(git checkout *)",
+      "Bash(git rebase *)",
+      "Bash(GIT_EDITOR=true git rebase --continue)"
+    ]
+  }
+}
