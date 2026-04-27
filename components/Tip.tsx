@@ -86,8 +86,8 @@ export default function Tip({ id, children, placement = 'top' }: TipProps) {
       <span
         ref={ref}
         style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', gap: 3, cursor: 'help' }}
-        onMouseEnter={show}
-        onMouseLeave={() => setVis(false)}
+        onPointerEnter={e => { if (e.pointerType !== 'touch') show() }}
+        onPointerLeave={e => { if (e.pointerType !== 'touch') setVis(false) }}
         onClick={toggle}
       >
         {children}
