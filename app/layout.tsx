@@ -48,6 +48,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             --blue-subtle:     rgba(59,130,246,0.1);
             --blue-subtle-2:   rgba(59,130,246,0.18);
             --tooltip-bg:      #0a1628;
+            --tooltip-text:    #cbd5e1;
+            --tooltip-title:   #60a5fa;
             --why-bg:          linear-gradient(135deg,#0e1e3c,#0c1828);
             --why-border:      #1e3a5f;
             --why-text:        #60a5fa;
@@ -80,6 +82,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               --blue-subtle:     rgba(37,99,235,0.08);
               --blue-subtle-2:   rgba(37,99,235,0.12);
               --tooltip-bg:      #1e293b;
+              --tooltip-text:    #e2e8f0;
+              --tooltip-title:   #93c5fd;
               --why-bg:          linear-gradient(135deg,#eff6ff,#dbeafe);
               --why-border:      #93c5fd;
               --why-text:        #1d4ed8;
