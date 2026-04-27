@@ -91,7 +91,7 @@ export default function Tip({ id, children, placement = 'top' }: TipProps) {
         onClick={toggle}
       >
         {children}
-        <span style={{
+        <span className="tip-q" style={{
           fontSize: 9.5, color: 'var(--blue)', border: '1px solid var(--blue)66', borderRadius: '50%',
           width: 13, height: 13, display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
           fontWeight: 800, flexShrink: 0, lineHeight: 1,

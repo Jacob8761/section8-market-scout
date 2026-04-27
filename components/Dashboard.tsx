@@ -75,7 +75,7 @@ export default function Dashboard() {
         .chip:hover { opacity: .85; }
         .cbtn { background: var(--surface); border: 1px solid var(--border-2); color: var(--text-3); border-radius: 8px; padding: 7px 14px; cursor: pointer; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; display: inline-flex; align-items: center; gap: 6px; transition: border-color .15s, color .15s; }
         .cbtn:hover { border-color: var(--blue); color: var(--text); }
-        @media (max-width: 768px) { .dt { display: none !important; } .mc { display: flex !important; } .sb { grid-template-columns: 1fr !important; } .adv-btn { display: none !important; } .tip-dt { display: none !important; } .tip-mc-bd { display: block; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.55); } .tip-mc { display: block; position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); width: min(290px,85vw); max-height: 70vh; overflow-y: auto; } }
+        @media (max-width: 768px) { .dt { display: none !important; } .mc { display: flex !important; } .sb { grid-template-columns: 1fr !important; } .adv-btn { display: none !important; } .tip-dt { display: none !important; } .tip-q { display: none !important; } .tip-mc-bd { display: block; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.55); } .tip-mc { display: block; position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); width: min(290px,85vw); max-height: 70vh; overflow-y: auto; } }
         @media (min-width: 769px) { .mc { display: none !important; } .tip-mc { display: none !important; } .tip-mc-bd { display: none !important; } }
       `}</style>
 
@@ -182,12 +182,6 @@ export default function Dashboard() {
               {adv ? '▾' : '▸'} Advanced
             </button>
           </div>
-        </div>
-
-        {/* Hint bar */}
-        <div style={{ marginBottom: 12, padding: '8px 14px', background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 12, color: 'var(--text-5)', display: 'flex', alignItems: 'center', gap: 8 }}>
-          <span style={{ color: 'var(--blue)', fontSize: 14, flexShrink: 0 }}>💡</span>
-          <span>New to Section 8 investing? Hover any <span style={{ color: 'var(--blue-light)', fontWeight: 600 }}>?</span> icon for a plain-English explanation. Click any row for a full market breakdown.</span>
         </div>
 
         {/* ── Desktop table ── */}
