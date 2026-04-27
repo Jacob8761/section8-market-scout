@@ -30,8 +30,8 @@ export default function Modal({ m, onClose, advanced }: ModalProps) {
     bullets.push('⚠️ Population is declining: Section 8 demand may still be strong now, but plan your exit strategy and track resale liquidity.')
   bullets.push(`📋 Notes: ${m.notes}`)
 
-  const card = { background: '#1a2332', border: '1px solid #1e2d3d', borderRadius: 10, padding: '11px 13px' }
-  const cardSm = { background: '#131c27', border: '1px solid #1e2d3d', borderRadius: 10, padding: '9px 12px' }
+  const card = { background: 'var(--surface-card)', border: '1px solid var(--border-3)', borderRadius: 10, padding: '11px 13px' }
+  const cardSm = { background: 'var(--surface-card-sm)', border: '1px solid var(--border-3)', borderRadius: 10, padding: '9px 12px' }
 
   return (
     <div
@@ -44,7 +44,7 @@ export default function Modal({ m, onClose, advanced }: ModalProps) {
       <div
         onClick={e => e.stopPropagation()}
         style={{
-          background: '#0f1419', border: '1px solid #1e2d3d', borderRadius: 18,
+          background: 'var(--surface-modal)', border: '1px solid var(--border-3)', borderRadius: 18,
           maxWidth: 620, width: '100%', maxHeight: '90vh', overflowY: 'auto',
           padding: '26px 26px 22px', boxShadow: '0 24px 80px rgba(0,0,0,0.9)',
         }}
@@ -52,11 +52,11 @@ export default function Modal({ m, onClose, advanced }: ModalProps) {
         {/* Header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 20 }}>
           <div>
-            <div style={{ fontSize: 10.5, color: '#3b82f6', textTransform: 'uppercase', letterSpacing: 1.5, fontWeight: 700, marginBottom: 6 }}>
+            <div style={{ fontSize: 10.5, color: 'var(--blue)', textTransform: 'uppercase', letterSpacing: 1.5, fontWeight: 700, marginBottom: 6 }}>
               Market Deep Dive
             </div>
-            <h2 style={{ margin: 0, fontSize: 24, fontFamily: "'Space Grotesk',sans-serif", color: '#e2e8f0', fontWeight: 700, letterSpacing: -0.3 }}>
-              {m.city}, <span style={{ color: '#475569' }}>{m.state}</span>
+            <h2 style={{ margin: 0, fontSize: 24, fontFamily: "'Space Grotesk',sans-serif", color: 'var(--text)', fontWeight: 700, letterSpacing: -0.3 }}>
+              {m.city}, <span style={{ color: 'var(--text-5)' }}>{m.state}</span>
             </h2>
             <div style={{ marginTop: 10, display: 'flex', gap: 6, flexWrap: 'wrap', alignItems: 'center' }}>
               <MBadge type={m.marketType} />
@@ -67,7 +67,7 @@ export default function Modal({ m, onClose, advanced }: ModalProps) {
           <button
             onClick={onClose}
             style={{
-              background: 'none', border: '1px solid #1e2d3d', color: '#64748b',
+              background: 'none', border: '1px solid var(--border-3)', color: 'var(--text-4)',
               borderRadius: 8, cursor: 'pointer', fontSize: 20, width: 38, height: 38,
               display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
             }}
@@ -82,10 +82,10 @@ export default function Modal({ m, onClose, advanced }: ModalProps) {
             { label: 'Market Type', val: (mtCfg[m.marketType] ?? mtCfg.Mix).label, tip: 'Market Type' },
           ].map(({ label, val, tip, small }) => (
             <div key={label} style={card}>
-              <div style={{ fontSize: 10, color: '#64748b', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 5 }}>
+              <div style={{ fontSize: 10, color: 'var(--text-4)', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 5 }}>
                 {tip ? <Tip id={tip}>{label}</Tip> : label}
               </div>
-              <div style={{ fontSize: small ? 12 : 17, fontWeight: 700, color: '#e2e8f0', fontFamily: "'DM Mono',monospace", lineHeight: 1.2 }}>
+              <div style={{ fontSize: small ? 12 : 17, fontWeight: 700, color: 'var(--text)', fontFamily: "'DM Mono',monospace", lineHeight: 1.2 }}>
                 {val}
               </div>
             </div>
@@ -102,31 +102,31 @@ export default function Modal({ m, onClose, advanced }: ModalProps) {
               { id: 'Poverty Rate',      val: m.povertyRate },
             ].map(({ id, val }) => (
               <div key={id} style={cardSm}>
-                <div style={{ fontSize: 10, color: '#475569', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 4 }}>
+                <div style={{ fontSize: 10, color: 'var(--text-5)', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 4 }}>
                   <Tip id={id} placement="bottom">{id}</Tip>
                 </div>
-                <div style={{ fontSize: 14, fontWeight: 600, color: '#94a3b8', fontFamily: "'DM Mono',monospace" }}>{val}</div>
+                <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--text-3)', fontFamily: "'DM Mono',monospace" }}>{val}</div>
               </div>
             ))}
           </div>
         )}
 
         {/* Notes */}
-        <div style={{ background: '#131c27', border: '1px solid #1e2d3d', borderRadius: 10, padding: '11px 14px', marginBottom: 14 }}>
-          <div style={{ fontSize: 10, color: '#475569', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 6 }}>
+        <div style={{ background: 'var(--surface-card-sm)', border: '1px solid var(--border-3)', borderRadius: 10, padding: '11px 14px', marginBottom: 14 }}>
+          <div style={{ fontSize: 10, color: 'var(--text-5)', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 6 }}>
             Notes
           </div>
-          <div style={{ fontSize: 13.5, color: '#94a3b8', lineHeight: 1.55 }}>{m.notes}</div>
+          <div style={{ fontSize: 13.5, color: 'var(--text-3)', lineHeight: 1.55 }}>{m.notes}</div>
         </div>
 
         {/* Why section */}
-        <div style={{ background: 'linear-gradient(135deg,#0e1e3c,#0c1828)', border: '1px solid #1e3a5f', borderRadius: 12, padding: '16px 18px' }}>
-          <div style={{ fontSize: 11, color: '#60a5fa', textTransform: 'uppercase', letterSpacing: 1.5, fontWeight: 700, marginBottom: 12 }}>
+        <div style={{ background: 'var(--why-bg)', border: '1px solid var(--border-blue)', borderRadius: 12, padding: '16px 18px' }}>
+          <div style={{ fontSize: 11, color: 'var(--blue-light)', textTransform: 'uppercase', letterSpacing: 1.5, fontWeight: 700, marginBottom: 12 }}>
             💡 Why This Market for Section 8 Investors?
           </div>
           <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 8 }}>
             {bullets.map((b, i) => (
-              <li key={i} style={{ color: '#94a3b8', fontSize: 13.5, lineHeight: 1.65, borderLeft: '2px solid #1e3a5f', paddingLeft: 12 }}>
+              <li key={i} style={{ color: 'var(--text-3)', fontSize: 13.5, lineHeight: 1.65, borderLeft: '2px solid var(--border-blue)', paddingLeft: 12 }}>
                 {b}
               </li>
             ))}

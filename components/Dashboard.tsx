@@ -49,38 +49,38 @@ export default function Dashboard() {
   const SortIcon = ({ c }: { c: keyof Market }) =>
     sortC !== c
       ? <span style={{ opacity: .2, marginLeft: 3, fontSize: 9 }}>⇅</span>
-      : <span style={{ marginLeft: 3, fontSize: 9, color: '#3b82f6' }}>{sortD === 'asc' ? '▲' : '▼'}</span>
+      : <span style={{ marginLeft: 3, fontSize: 9, color: 'var(--blue)' }}>{sortD === 'asc' ? '▲' : '▼'}</span>
 
   const TH: React.CSSProperties = {
     padding: '11px 13px', textAlign: 'left', fontSize: 10.5, fontWeight: 700,
-    color: '#64748b', textTransform: 'uppercase', letterSpacing: .8,
+    color: 'var(--text-4)', textTransform: 'uppercase', letterSpacing: .8,
     cursor: 'pointer', whiteSpace: 'nowrap', userSelect: 'none',
-    background: '#07090e', borderBottom: '1px solid #151f2e',
+    background: 'var(--surface-deep)', borderBottom: '1px solid var(--border)',
   }
   const TD: React.CSSProperties = {
-    padding: '10px 13px', fontSize: 13, color: '#cbd5e1',
-    borderBottom: '1px solid #0c1320', verticalAlign: 'middle',
+    padding: '10px 13px', fontSize: 13, color: 'var(--text-2)',
+    borderBottom: '1px solid var(--border-subtle)', verticalAlign: 'middle',
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: '#060a0f', color: '#e2e8f0' }}>
+    <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
       <style>{`
         * { box-sizing: border-box; }
         body { margin: 0; font-family: 'Inter', sans-serif; }
         ::-webkit-scrollbar { width: 5px; height: 5px; }
-        ::-webkit-scrollbar-track { background: #07090e; }
-        ::-webkit-scrollbar-thumb { background: #1a2535; border-radius: 3px; }
-        tr.dr:hover td { background: #0b1320 !important; }
+        ::-webkit-scrollbar-track { background: var(--surface-deep); }
+        ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
+        tr.dr:hover td { background: var(--surface) !important; }
         .chip { border-radius: 20px; border: 1px solid; padding: 5px 14px; font-size: 12px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; transition: opacity .15s; background: transparent; }
         .chip:hover { opacity: .85; }
-        .cbtn { background: #0b1320; border: 1px solid #172030; color: #94a3b8; border-radius: 8px; padding: 7px 14px; cursor: pointer; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; display: inline-flex; align-items: center; gap: 6px; transition: border-color .15s, color .15s; }
-        .cbtn:hover { border-color: #3b82f6; color: #e2e8f0; }
+        .cbtn { background: var(--surface); border: 1px solid var(--border-2); color: var(--text-3); border-radius: 8px; padding: 7px 14px; cursor: pointer; font-size: 12px; font-weight: 600; font-family: 'Inter', sans-serif; display: inline-flex; align-items: center; gap: 6px; transition: border-color .15s, color .15s; }
+        .cbtn:hover { border-color: var(--blue); color: var(--text); }
         @media (max-width: 768px) { .dt { display: none !important; } .mc { display: flex !important; } .sb { grid-template-columns: 1fr !important; } .adv-btn { display: none !important; } .tip-dt { display: none !important; } .tip-mc-bd { display: block; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.55); } .tip-mc { display: block; position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); width: min(290px,85vw); max-height: 70vh; overflow-y: auto; } }
         @media (min-width: 769px) { .mc { display: none !important; } .tip-mc { display: none !important; } .tip-mc-bd { display: none !important; } }
       `}</style>
 
       {/* ── HEADER ── */}
-      <div style={{ background: 'linear-gradient(180deg,#07101f 0%,#060a0f 100%)', borderBottom: '1px solid #151f2e' }}>
+      <div style={{ background: 'linear-gradient(180deg,var(--header-from) 0%,var(--bg) 100%)', borderBottom: '1px solid var(--border)' }}>
         <div style={{ maxWidth: 1440, margin: '0 auto', padding: '14px 24px 12px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
             <a href="/" style={{ display: 'block', cursor: 'pointer', flexShrink: 0 }} title="Return home">
@@ -93,19 +93,19 @@ export default function Dashboard() {
                 priority
               />
             </a>
-            <div style={{ width: 1, height: 44, background: '#151f2e', flexShrink: 0 }} />
+            <div style={{ width: 1, height: 44, background: 'var(--border)', flexShrink: 0 }} />
             <div>
-              <h1 style={{ margin: 0, fontSize: 'clamp(13px,2vw,18px)', fontWeight: 700, color: '#e2e8f0', letterSpacing: -.3, fontFamily: "'Space Grotesk',sans-serif", lineHeight: 1.2 }}>
+              <h1 style={{ margin: 0, fontSize: 'clamp(13px,2vw,18px)', fontWeight: 700, color: 'var(--text)', letterSpacing: -.3, fontFamily: "'Space Grotesk',sans-serif", lineHeight: 1.2 }}>
                 Success With Section 8 Market Analysis
               </h1>
-              <div style={{ fontSize: 11, color: '#475569', marginTop: 3 }}>
+              <div style={{ fontSize: 11, color: 'var(--text-5)', marginTop: 3 }}>
                 {filtered.length} of {markets.length} markets shown · 2026 Data
               </div>
             </div>
           </div>
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-            {([['Cashflow','#22c55e'],['Mix','#3b82f6'],['Appreciation','#a855f7']] as [string,string][]).map(([t,c]) => (
-              <div key={t} style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 11, color: '#64748b' }}>
+            {([['Cashflow','#22c55e'],['Mix','var(--blue)'],['Appreciation','#a855f7']] as [string,string][]).map(([t,c]) => (
+              <div key={t} style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 11, color: 'var(--text-4)' }}>
                 <span style={{ width: 7, height: 7, borderRadius: '50%', background: c, display: 'inline-block' }} />{t}
               </div>
             ))}
@@ -118,9 +118,9 @@ export default function Dashboard() {
             { label: 'Markets Shown',  val: filtered.length },
             { label: 'States Covered', val: [...new Set(filtered.map(m => m.state))].length },
           ].map(({ label, val }) => (
-            <div key={label} style={{ background: '#0b1320', border: '1px solid #151f2e', borderRadius: 10, padding: '8px 14px' }}>
-              <div style={{ fontSize: 10, color: '#475569', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 3 }}>{label}</div>
-              <div style={{ fontSize: 16, fontWeight: 700, color: '#e2e8f0', fontFamily: "'DM Mono',monospace" }}>{val}</div>
+            <div key={label} style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 10, padding: '8px 14px' }}>
+              <div style={{ fontSize: 10, color: 'var(--text-5)', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 3 }}>{label}</div>
+              <div style={{ fontSize: 16, fontWeight: 700, color: 'var(--text)', fontFamily: "'DM Mono',monospace" }}>{val}</div>
             </div>
           ))}
         </div>
@@ -132,12 +132,12 @@ export default function Dashboard() {
         {/* Controls */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: 14, alignItems: 'center' }}>
           <div style={{ position: 'relative', flex: '1 1 220px', minWidth: 180 }}>
-            <span style={{ position: 'absolute', left: 11, top: '50%', transform: 'translateY(-50%)', color: '#475569', fontSize: 14, pointerEvents: 'none' }}>🔍</span>
+            <span style={{ position: 'absolute', left: 11, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-5)', fontSize: 14, pointerEvents: 'none' }}>🔍</span>
             <input
               value={search}
               onChange={e => setSearch(e.target.value)}
               placeholder="Search city, state, or type…"
-              style={{ width: '100%', background: '#0b1320', border: '1px solid #172030', borderRadius: 9, padding: '9px 12px 9px 34px', color: '#e2e8f0', fontSize: 13, outline: 'none', fontFamily: "'Inter',sans-serif" }}
+              style={{ width: '100%', background: 'var(--surface)', border: '1px solid var(--border-2)', borderRadius: 9, padding: '9px 12px 9px 34px', color: 'var(--text)', fontSize: 13, outline: 'none', fontFamily: "'Inter',sans-serif" }}
             />
           </div>
 
@@ -146,7 +146,7 @@ export default function Dashboard() {
               const c = mtCfg[t]; const on = selMT.includes(t)
               return (
                 <button key={t} className="chip" onClick={() => tog(selMT, setSelMT, t)}
-                  style={{ color: on ? c.color : '#64748b', borderColor: on ? c.color : '#172030', background: on ? c.bg : 'transparent' }}>
+                  style={{ color: on ? c.color : 'var(--text-4)', borderColor: on ? c.color : 'var(--border-2)', background: on ? c.bg : 'transparent' }}>
                   {t}
                 </button>
               )
@@ -158,10 +158,10 @@ export default function Dashboard() {
               📍 State {selSt.length ? `(${selSt.length})` : ''} ▾
             </button>
             {stDrop && (
-              <div style={{ position: 'absolute', top: 'calc(100% + 6px)', left: 0, background: '#0b1320', border: '1px solid #172030', borderRadius: 10, padding: 8, zIndex: 200, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2, minWidth: 160, boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}>
+              <div style={{ position: 'absolute', top: 'calc(100% + 6px)', left: 0, background: 'var(--surface)', border: '1px solid var(--border-2)', borderRadius: 10, padding: 8, zIndex: 200, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2, minWidth: 160, boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}>
                 {allStates.map(s => (
                   <button key={s} onClick={() => tog(selSt, setSelSt, s)}
-                    style={{ background: selSt.includes(s) ? 'rgba(59,130,246,0.18)' : 'none', border: 'none', color: selSt.includes(s) ? '#3b82f6' : '#94a3b8', padding: '5px 10px', cursor: 'pointer', borderRadius: 6, textAlign: 'left', fontSize: 12, fontFamily: "'Inter',sans-serif" }}>
+                    style={{ background: selSt.includes(s) ? 'var(--blue-subtle-2)' : 'none', border: 'none', color: selSt.includes(s) ? 'var(--blue)' : 'var(--text-3)', padding: '5px 10px', cursor: 'pointer', borderRadius: 6, textAlign: 'left', fontSize: 12, fontFamily: "'Inter',sans-serif" }}>
                     {s}
                   </button>
                 ))}
@@ -178,20 +178,20 @@ export default function Dashboard() {
 
           <div style={{ marginLeft: 'auto', display: 'flex', gap: 8 }}>
             <button className="cbtn adv-btn" onClick={() => setAdv(a => !a)}
-              style={{ borderColor: adv ? '#3b82f6' : '#172030', color: adv ? '#3b82f6' : '#94a3b8', background: adv ? 'rgba(59,130,246,0.1)' : '#0b1320' }}>
+              style={{ borderColor: adv ? 'var(--blue)' : 'var(--border-2)', color: adv ? 'var(--blue)' : 'var(--text-3)', background: adv ? 'var(--blue-subtle)' : 'var(--surface)' }}>
               {adv ? '▾' : '▸'} Advanced
             </button>
           </div>
         </div>
 
         {/* Hint bar */}
-        <div style={{ marginBottom: 12, padding: '8px 14px', background: '#0b1320', border: '1px solid #151f2e', borderRadius: 8, fontSize: 12, color: '#475569', display: 'flex', alignItems: 'center', gap: 8 }}>
-          <span style={{ color: '#3b82f6', fontSize: 14, flexShrink: 0 }}>💡</span>
-          <span>New to Section 8 investing? Hover any <span style={{ color: '#60a5fa', fontWeight: 600 }}>?</span> icon for a plain-English explanation. Click any row for a full market breakdown.</span>
+        <div style={{ marginBottom: 12, padding: '8px 14px', background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 12, color: 'var(--text-5)', display: 'flex', alignItems: 'center', gap: 8 }}>
+          <span style={{ color: 'var(--blue)', fontSize: 14, flexShrink: 0 }}>💡</span>
+          <span>New to Section 8 investing? Hover any <span style={{ color: 'var(--blue-light)', fontWeight: 600 }}>?</span> icon for a plain-English explanation. Click any row for a full market breakdown.</span>
         </div>
 
         {/* ── Desktop table ── */}
-        <div className="dt" style={{ overflowX: 'auto', borderRadius: 14, border: '1px solid #151f2e', boxShadow: '0 4px 24px rgba(0,0,0,0.4)' }}>
+        <div className="dt" style={{ overflowX: 'auto', borderRadius: 14, border: '1px solid var(--border)', boxShadow: '0 4px 24px rgba(0,0,0,0.4)' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: 680 }}>
             <thead>
               <tr>
@@ -221,12 +221,12 @@ export default function Dashboard() {
             <tbody>
               {filtered.map(m => {
                 const trend = m.popTrend.includes('Inc') ? '↑ ' : m.popTrend.includes('Dec') ? '↓ ' : '→ '
-                const tCol  = m.popTrend.includes('Inc') ? '#22c55e' : m.popTrend.includes('Dec') ? '#ef4444' : '#64748b'
+                const tCol  = m.popTrend.includes('Inc') ? '#22c55e' : m.popTrend.includes('Dec') ? '#ef4444' : 'var(--text-4)'
                 return (
                   <tr key={`${m.city}-${m.state}`} className="dr" onClick={() => setActive(m)} style={{ cursor: 'pointer' }}>
                     <td style={TD}>
-                      <div style={{ fontWeight: 700, color: '#e2e8f0', fontSize: 14, fontFamily: "'Space Grotesk',sans-serif" }}>{m.city}</div>
-                      <div style={{ fontSize: 11, color: '#475569', marginTop: 1 }}>{m.state}</div>
+                      <div style={{ fontWeight: 700, color: 'var(--text)', fontSize: 14, fontFamily: "'Space Grotesk',sans-serif" }}>{m.city}</div>
+                      <div style={{ fontSize: 11, color: 'var(--text-5)', marginTop: 1 }}>{m.state}</div>
                     </td>
                     <td style={TD}><span style={{ fontFamily: "'DM Mono',monospace", fontSize: 12 }}>{fmtPop(m.population)}</span></td>
                     <td style={TD}><span style={{ fontSize: 12, color: tCol }}>{trend}{m.popTrend}</span></td>
@@ -237,29 +237,29 @@ export default function Dashboard() {
                         : m.riskFlags.map(f => <RPill key={f} flag={f} />)}
                     </td>
                     {adv && <>
-                      <td style={TD}><span style={{ fontSize: 12, color: '#64748b', fontFamily: "'DM Mono',monospace" }}>{m.unemployment}</span></td>
-                      <td style={TD}><span style={{ fontSize: 12, color: '#64748b', fontFamily: "'DM Mono',monospace" }}>{m.propertyTaxRate}</span></td>
-                      <td style={TD}><span style={{ fontSize: 12, color: '#64748b' }}>{m.insuranceIndex}</span></td>
-                      <td style={TD}><span style={{ fontSize: 12, color: '#64748b', fontFamily: "'DM Mono',monospace" }}>{m.povertyRate}</span></td>
+                      <td style={TD}><span style={{ fontSize: 12, color: 'var(--text-4)', fontFamily: "'DM Mono',monospace" }}>{m.unemployment}</span></td>
+                      <td style={TD}><span style={{ fontSize: 12, color: 'var(--text-4)', fontFamily: "'DM Mono',monospace" }}>{m.propertyTaxRate}</span></td>
+                      <td style={TD}><span style={{ fontSize: 12, color: 'var(--text-4)' }}>{m.insuranceIndex}</span></td>
+                      <td style={TD}><span style={{ fontSize: 12, color: 'var(--text-4)', fontFamily: "'DM Mono',monospace" }}>{m.povertyRate}</span></td>
                     </>}
-                    <td style={{ ...TD, maxWidth: 220, fontSize: 12, color: '#475569', lineHeight: 1.4 }}>{m.notes}</td>
+                    <td style={{ ...TD, maxWidth: 220, fontSize: 12, color: 'var(--text-5)', lineHeight: 1.4 }}>{m.notes}</td>
                   </tr>
                 )
               })}
             </tbody>
           </table>
-          {!filtered.length && <div style={{ textAlign: 'center', padding: 60, color: '#475569' }}>No markets match your current filters.</div>}
+          {!filtered.length && <div style={{ textAlign: 'center', padding: 60, color: 'var(--text-5)' }}>No markets match your current filters.</div>}
         </div>
 
         {/* ── Mobile cards ── */}
         <div className="mc" style={{ flexDirection: 'column', gap: 12 }}>
           {filtered.map(m => (
             <div key={`${m.city}-${m.state}`} onClick={() => setActive(m)}
-              style={{ background: '#0b1320', border: '1px solid #151f2e', borderRadius: 14, padding: 16, cursor: 'pointer' }}>
+              style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 14, padding: 16, cursor: 'pointer' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 10 }}>
                 <div>
-                  <div style={{ fontWeight: 700, fontSize: 17, color: '#e2e8f0', fontFamily: "'Space Grotesk',sans-serif" }}>{m.city}, {m.state}</div>
-                  <div style={{ fontSize: 12, color: '#475569', marginTop: 2 }}>{m.popTrend} · {fmtPop(m.population)}</div>
+                  <div style={{ fontWeight: 700, fontSize: 17, color: 'var(--text)', fontFamily: "'Space Grotesk',sans-serif" }}>{m.city}, {m.state}</div>
+                  <div style={{ fontSize: 12, color: 'var(--text-5)', marginTop: 2 }}>{m.popTrend} · {fmtPop(m.population)}</div>
                 </div>
                 <MBadge type={m.marketType} />
               </div>
@@ -267,13 +267,13 @@ export default function Dashboard() {
                 {m.riskFlags.map(f => <RPill key={f} flag={f} />)}
                 {!m.riskFlags.length && <span style={{ color: '#22c55e', fontSize: 11, fontWeight: 600 }}>✓ No Risk Flags</span>}
               </div>
-              <div style={{ fontSize: 12, color: '#475569', lineHeight: 1.4 }}>{m.notes}</div>
+              <div style={{ fontSize: 12, color: 'var(--text-5)', lineHeight: 1.4 }}>{m.notes}</div>
             </div>
           ))}
         </div>
 
         {/* Footer */}
-        <div style={{ marginTop: 36, padding: '14px 0 6px', borderTop: '1px solid #0d1520', fontSize: 11, color: '#334155', lineHeight: 1.7, textAlign: 'center' }}>
+        <div style={{ marginTop: 36, padding: '14px 0 6px', borderTop: '1px solid var(--border-footer)', fontSize: 11, color: 'var(--text-6)', lineHeight: 1.7, textAlign: 'center' }}>
           Data as of 2026 &nbsp;•&nbsp; Educational tool for Success with Section 8 Mentees only &nbsp;•&nbsp;<br />
           Always verify latest HUD FMRs, local PHA rules, property values, and insurance costs with official sources.
         </div>

@@ -9,8 +9,8 @@ interface TipProps {
 }
 
 const base: React.CSSProperties = {
-  background: '#0a1628', border: '1px solid #1e3a5f', borderRadius: 10,
-  padding: '11px 14px', fontSize: 12.5, color: '#cbd5e1',
+  background: 'var(--tooltip-bg)', border: '1px solid var(--border-blue)', borderRadius: 10,
+  padding: '11px 14px', fontSize: 12.5, color: 'var(--text-2)',
   lineHeight: 1.65, boxShadow: '0 10px 40px rgba(0,0,0,0.75)',
   whiteSpace: 'pre-wrap', fontFamily: "'Inter',sans-serif", fontWeight: 400,
 }
@@ -22,7 +22,7 @@ export default function Tip({ id, children, placement = 'top' }: TipProps) {
 
   const label = (
     <>
-      <span style={{ display: 'block', color: '#60a5fa', fontWeight: 700, fontSize: 10.5, textTransform: 'uppercase', letterSpacing: 0.8, marginBottom: 6 }}>{id}</span>
+      <span style={{ display: 'block', color: 'var(--blue-light)', fontWeight: 700, fontSize: 10.5, textTransform: 'uppercase', letterSpacing: 0.8, marginBottom: 6 }}>{id}</span>
       {text}
     </>
   )
@@ -37,7 +37,7 @@ export default function Tip({ id, children, placement = 'top' }: TipProps) {
       >
         {children}
         <span style={{
-          fontSize: 9.5, color: '#3b82f6', border: '1px solid #3b82f666', borderRadius: '50%',
+          fontSize: 9.5, color: 'var(--blue)', border: '1px solid var(--blue)66', borderRadius: '50%',
           width: 13, height: 13, display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
           fontWeight: 800, flexShrink: 0, lineHeight: 1,
         }}>?</span>
@@ -55,8 +55,8 @@ export default function Tip({ id, children, placement = 'top' }: TipProps) {
             <span style={{
               position: 'absolute',
               ...(placement === 'top'
-                ? { top: '100%', borderTop: '6px solid #1e3a5f' }
-                : { bottom: '100%', borderBottom: '6px solid #1e3a5f' }),
+                ? { top: '100%', borderTop: '6px solid var(--border-blue)' }
+                : { bottom: '100%', borderBottom: '6px solid var(--border-blue)' }),
               left: '50%', transform: 'translateX(-50%)',
               borderLeft: '6px solid transparent', borderRight: '6px solid transparent',
               display: 'block', width: 0, height: 0,
@@ -78,7 +78,7 @@ export default function Tip({ id, children, placement = 'top' }: TipProps) {
               onClick={e => { e.stopPropagation(); setVis(false) }}
               style={{
                 display: 'block', marginTop: 12, marginLeft: 'auto',
-                background: 'none', border: '1px solid #1e3a5f44', color: '#64748b',
+                background: 'none', border: '1px solid var(--border-blue)44', color: 'var(--text-4)',
                 borderRadius: 6, padding: '4px 12px', fontSize: 11, cursor: 'pointer',
                 fontFamily: "'Inter',sans-serif",
               }}
